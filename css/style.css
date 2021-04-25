@@ -44,15 +44,15 @@ body {
     overflow: hidden;
 }
 
-.menu li {
+.menu {
     float: left;
 }
 
-.menu li:hover {
+.menu :hover {
     background-color: #8b0000;
 }
 
-.menu li a {
+.menu a {
     color: #f5deb3;
     text-decoration: none;
     display: inline-block;
@@ -129,7 +129,8 @@ body {
 /*PARTE DE ABAJO DE LA PAGINA*/
 
 .pie {
-    margin-top: 60vh;
+    border-radius: 10px;
+    margin-top: 15vh;
     height: 6vh;
     background-color: #333;
     clear: left;
@@ -140,4 +141,52 @@ body {
     font-size: 20px;
     color: white;
     margin-left: 5vh;
+}
+
+
+/*MENU DE REDES SOCIALES*/
+
+.social-bar {
+    position: fixed;
+    right: 0;
+    top: 10%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
+}
+
+.icon {
+    color: white;
+    text-decoration: none;
+    padding: .7rem;
+    display: flex;
+    transition: all .5s;
+}
+
+.icon-facebook {
+    background: #2E406E;
+}
+
+.icon-twitter {
+    background: #339DC5;
+}
+
+.icon-instagram {
+    background-color: #FF0404;
+}
+
+.icon:first-child {
+    border-radius: 1rem 0 0 0;
+}
+
+.icon:last-child {
+    border-radius: 0 0 0 1rem;
+}
+
+.icon:hover {
+    padding-right: 3rem;
+    border-radius: 1rem 0 0 1rem;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
 }
