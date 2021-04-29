@@ -1,193 +1,399 @@
-/*AQUI SE CONFIGURA TODO LO BASICO DE LA PAGINA, TIPO DE LETRA, COLOR DE FONDO, ETC.*/
-
-* {
-    margin: 0%;
-    padding: 0%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
 body {
-    background-color: #a9a9a9;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #000000;
+    /*tamaño de las letras*/
+    font-size: 1.5rem;
+    /* interlineado */
+    /*line-height: 1.6em;*/
+    margin: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.3em;
 }
 
 
-/*ENCABEZADO - PARTE DE ARRIBA DE LA PAGINA*/
+/*PARRAFOS*/
 
-#encabezado {
-    background-color: #00ffff;
-    width: 100%;
-}
-
-#encabezado h1 {
-    text-align: center;
-    padding-top: 20px;
-    text-shadow: 5px 5px 2px black;
-    font-size: 60px;
-    text-transform: uppercase;
+p {
+    margin-bottom: 1.6em;
 }
 
 
 /*MENU DE NAVEGACION*/
 
-.menu {
-    width: 100%;
-    height: 12vh;
-    text-align: center;
-    margin-top: 5vh;
-    background-color: #333;
+.container {
+    width: 85%;
+    max-width: 850px;
+    margin: 0px auto;
+    line-height: 1.6em;
 }
 
-.menu ul {
-    list-style-type: none;
+.header {
+    background-color: #CCD1D1;
+    color: #F53009;
+    padding: 1.5rem 0;
+}
+
+.header a {
+    color: #F53009;
+    text-decoration: none;
+}
+
+.logo-nav-container {
+    display: flex;
+    justify-content: space-between;
+    /* lo alineamos al centro */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+/*AJUSTE EL TAMAÑO DEL LOGO*/
+
+.logobom {
+    width: 58px;
+    height: 65.62px;
+}
+
+
+/*MENU HAMBURGUESA - SOLO ES EL LOGO*/
+
+.menu-icon {
+    display: none;
+}
+
+
+/*TODOS LOS UL QUE ESTAN DENTRO DE NAVIGATION/MENU*/
+
+.navigation ul {
     margin: 0;
     padding: 0;
+    list-style: none;
+}
+
+.navigation ul li {
+    /*HACE QUE EN EL MENU ESTE TODO UNO AL LADO DEL OTRO*/
+    display: inline-block;
+}
+
+
+/*LOS ENLACES QUE ESTAN DENTRO DEL MENU*/
+
+.navigation ul li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+}
+
+.navigation ul li a:hover {
+    background: linear-gradient(143.28deg, #c9ffe6 18.75%, #e6c294 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+}
+
+
+/*HACE TODO EL BODY UN POCO MAS ABAJO DE LA BARRA DE MENU*/
+
+.main {
+    position: relative;
+    top: 2rem;
+}
+
+
+/*CONFIGURACION DE MENU RESPONSIVO
+REPONSIVE
+todas las caracteristicas que se mostraran a continuancion seran cuando tenga un ancho maximo de 767px */
+
+@media only screen and (max-width: 767px) {
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+    .navigation {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .navigation ul {
+        display: none;
+    }
+    .navigation ul.show {
+        display: block;
+    }
+    .navigation ul li {
+        display: block;
+    }
+    /* los enlaces dentro del menu */
+    .navigation ul li a {
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: all 0.2s linear;
+        border-radius: 5px;
+    }
+    .navigation ul li a:hover {
+        background: linear-gradient(143.28deg, #c9ffe6 18.75%, #e6c294 100%);
+        backdrop-filter: blur(10px);
+        border-radius: 18px;
+    }
+}
+
+
+/*AQUI COMIENZA EL CARRUSEL*/
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 170px);
+    min-height: 400px;
+    margin: 0 auto;
+    text-align: center;
     overflow: hidden;
 }
 
-.menu li {
-    float: left;
-}
-
-.menu li:hover {
-    background-color: #8b0000;
-}
-
-.menu li a {
-    color: #f5deb3;
-    text-decoration: none;
-    display: inline-block;
-    padding: 15px 16px;
-    font-size: 30px;
-    line-height: 50px;
-}
-
-.menu li{
-    list-style-type: none;
-}
-
-.active {
-    background-color: #046d04;
-}
-
-
-/*LOGO QUE APARECE EN LA PARTE DE ARRIBA DE LA PAGINA*/
-
-#logo {
-    padding-top: 1vh;
-    text-align: center;
-}
-
-#img {
-    width: 150px;
-}
-
-
-/*PRIMERA PARTE DEL CUERPO DE LA PAGINA - PRIMERA FOTO Y PARRAFO QUE SE PUEDE VER*/
-
-#historia {
+.carousel .carousel-inner,
+.carousel .carousel-item {
+    position: relative;
     width: 100%;
+    height: 100%;
 }
 
-.titulo {
-    margin-top: 10vh;
-    margin-left: 60vh;
-}
-
-.parrafo {
-    width: 90vh;
-    margin-left: 10vh;
-    margin-top: 0vh;
-    margin-right: 5vh;
-    float: right;
-}
-
-#historia #img img {
-    margin-left: 15vh;
-}
-
-
-/*SEGUNDA FOTO Y PARRAFO QUE SE VE EN LA PAGINA*/
-
-#sobre {
+.carousel .carousel-item img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-#sobre .titulo2 {
-    margin-top: 10vh;
-    margin-left: 50vh;
+.carousel .carousel-item::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
 }
 
-#sobre .parrafo2 {
-    width: 90vh;
-    margin-left: 10vh;
-    margin-top: 0vh;
-    margin-right: 5vh;
-    float: right;
-}
-
-#sobre #imag {
-    margin-left: 15vh;
-}
-
-
-/*PARTE DE ABAJO DE LA PAGINA*/
-
-.pie {
-    margin-top: 15vh;
-    height: 6vh;
-    background-color: #333;
-    clear: left;
-}
-
-.pie p {
-    line-height: 5vh;
-    font-size: 20px;
-    color: white;
-    margin-left: 5vh;
-}
-
-
-.social-bar {
-    position: fixed;
-    right: 0;
-    top: 10%;
-    font-size: 1.5rem;
+.carousel .carousel-caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-end;
-    z-index: 100;
+    height: calc(100vh - 170px);
+    min-height: 400px;
 }
 
-.icon {
-    color: white;
+.carousel .carousel-caption .btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 0;
+    transition: 0.3s;
+}
+
+.carousel .carousel-caption .btn:hover {
+    color: #030f27;
+    background: #FAEBD7;
+    border-color: #FAEBD7;
+}
+
+@media (max-width: 767.98px) {
+    .carousel .carousel-caption .btn {
+        padding: 12px 30px;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .carousel .carousel-caption .btn {
+        padding: 10px 25px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
+}
+
+.carousel .animated {
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s;
+}
+
+
+/*COMIENZO DEL FOOTER*/
+
+.footer {
+    background-color: #A4A4A4;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 55px 50px;
+}
+
+.footer .footer-left,
+.footer .footer-center,
+.footer .footer-right {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer span img {
+    width: 58px;
+    height: 70.62px;
+    margin: 0;
+}
+
+.footer .footer-links {
+    margin: 20px 12px;
+    padding: 0;
+}
+
+.footer .footer-links a {
+    color: #0000FF;
+    display: inline-block;
+    line-height: 1.8;
+    font-weight: 500;
     text-decoration: none;
-    padding: .7rem;
-    display: flex;
-    transition: all .5s;
+    margin-right: 8px;
 }
 
-.icon-facebook {
-    background: #2E406E;
+.footer .footer-company {
+    color: #222;
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'raleway';
 }
 
-.icon-twitter {
-    background: #339DC5;
+.footer .footer-center {
+    width: 35%;
 }
 
-.icon-instagram {
-    background-color: #FF0404;
+.footer .footer-center i {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+    margin: 10px 15px;
+    vertical-align: middle;
+    background-color: #33383b;
+    font-size: 22px;
 }
 
-.icon:first-child {
-    border-radius: 1rem 0 0 0;
+.footer .footer-center i.fa-envelope {
+    font-size: 18px;
+    line-height: 34px;
 }
 
-.icon:last-child {
-    border-radius: 0 0 0 1rem;
+.footer .footer-center p {
+    display: inline-block;
+    color: #0000FF;
+    font-weight: normal;
+    vertical-align: middle;
+    margin: 0;
+    font-family: 'raleway';
 }
 
-.icon:hover {
-    padding-right: 3rem;
-    border-radius: 1rem 0 0 1rem;
-    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+.footer .footer-center p a {
+    color: #1c448f;
+    text-decoration: none;
 }
+
+.footer .footer-center p span {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer .footer-links a::before {
+    content: "|";
+    font-weight: normal;
+    font-size: 20px;
+    color: #000000;
+    display: inline-block;
+    padding-right: 5px;
+    left: 0;
+}
+
+.footer .footer-links .link1:before {
+    content: none;
+}
+
+.footer .footer-right {
+    width: 20%;
+}
+
+.footer .footer-company-about {
+    line-height: 20px;
+    color: #0000FF;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    font-family: 'raleway';
+}
+
+.footer .footer-company-about span {
+    display: block;
+    color: #0000FF;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-family: 'raleway';
+}
+
+.footer .footer-social {
+    margin-top: 25px;
+}
+
+.footer .footer-social a {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    line-height: 36px;
+    color: #ffffff;
+    text-align: center;
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+
+/*RESPONSIVIDAD DEL FOOTER*/
+
+@media (max-width: 880px) {
+    .footer {
+        font-size: 14px;
+        font-family: 'raleway';
+    }
+    .footer .footer-left,
+    .footer .footer-center,
+    .footer .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .footer .footer-center {
+        margin-left: 0;
+    }
+}
+
+
+/*TERMINO DEL FOOTER*/
